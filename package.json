@@ -1,0 +1,16 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "./brand",
+      "./shared",
+      "./site"
+    ],
+    "nohoist": [
+      "**/tailwindcss",
+      "**/@tailwindcss/**",
+      "**/tailwindcss-filters"
+    ]
+  }
+}

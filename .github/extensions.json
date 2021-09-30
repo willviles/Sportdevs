@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "hookyqr.beautify",
+    "mikestead.dotenv",
+    "dbaeumer.vscode-eslint",
+    "zignd.html-css-class-completion",
+    "jounqin.vscode-mdx",
+    "esbenp.prettier-vscode",
+    "amatiasq.sort-imports",
+    "stylelint.vscode-stylelint",
+    "bradlc.vscode-tailwindcss",
+    "wayou.vscode-todo-highlight"
+  ]
+}

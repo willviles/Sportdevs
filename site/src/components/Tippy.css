@@ -1,0 +1,13 @@
+.tippy-content {
+  @apply p-0 overflow-hidden;
+}
+
+.tippy-box {
+  @apply text-base rounded-none;
+  &.tippy-rounded {
+    @apply rounded;
+    .tippy-content {
+      @apply rounded overflow-hidden;
+    }
+  }
+}

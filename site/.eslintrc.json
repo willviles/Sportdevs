@@ -1,0 +1,53 @@
+{
+  "extends": [
+    "standard-with-typescript",
+    "plugin:react/recommended",
+    "plugin:mdx/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/array-type": "off",
+        "@typescript-eslint/consistent-type-assertions": "off",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-extraneous-class": "off",
+        "@typescript-eslint/no-floating-promises": "off",
+        "react/no-unescaped-entities": "off",
+        "@typescript-eslint/no-unused-vars": [2, { "args": "none" }],
+        "@typescript-eslint/require-await": "off",
+        "@typescript-eslint/restrict-template-expressions": "off",
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "react/display-name": "off",
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": [0]
+      }
+    },
+    {
+      "files": ["*.d.ts"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": [0]
+      }
+    }
+  ]
+}

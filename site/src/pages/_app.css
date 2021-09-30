@@ -1,0 +1,24 @@
+html {
+  font-size: 14px;
+}
+
+body {
+  @apply bg-white text-green-1000 font-main overflow-x-hidden antialiased;
+  &.no-scroll {
+    @apply overflow-hidden;
+  }
+}
+
+[aria-hidden="true"] {
+  @apply hidden;
+}
+
+hr {
+  @apply border-none h-px;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+::selection {
+  @apply bg-green-500 text-white;
+}

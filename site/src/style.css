@@ -1,0 +1,159 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import "./components/ProgressBar.css";
+
+/* Base */
+
+html {
+  font-size: 14px;
+}
+
+body {
+  @apply bg-body-bg text-white font-main overflow-x-hidden antialiased;
+  &.no-scroll {
+    @apply overflow-hidden;
+  }
+}
+
+[aria-hidden="true"] {
+  @apply hidden;
+}
+
+hr {
+  @apply border-none h-px;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+
+::selection {
+  @apply bg-selection text-white;
+}
+
+
+/* Containers */
+
+@responsive {
+  .container, .container-sm, .container-md, .container-lg, .container-xl, .container-2xl , .container-full {
+    @apply w-full px-6;
+  }
+
+  @screen sm {
+    .container, .container-sm, .container-md, .container-lg, .container-xl, .container-2xl {
+      max-width: theme('screens.sm');
+    }
+  }
+
+  @screen md {
+    .container, .container-md, .container-lg, .container-xl, .container-2xl {
+      max-width: theme('screens.md');
+    }
+  }
+
+  @screen xl {
+    .container, .container-lg, .container-xl, .container-2xl {
+      max-width: theme('screens.xl');
+    }
+  }
+
+  @screen 2xl {
+    .container, .container-xl, .container-2xl {
+      max-width: theme('screens.2xl');
+    }
+  }
+
+  @screen 3xl {
+    .container, .container-2xl {
+      max-width: theme('screens.3xl');
+    }
+  }
+
+  @screen 4xl {
+    .container {
+      max-width: theme('screens.4xl');
+    }
+  }
+
+  .container-full {
+    max-width: 100%;
+  }
+}
+
+/* Type */
+
+@layer base {
+  .type-heading {
+    @apply leading-snug font-bold tracking-tight;
+  }
+
+  .type-article {
+    @apply leading-loose;
+
+    p:not(:last-of-type) {
+      @apply mb-[1.5em];
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      &:not(.reset) {
+        @apply font-bold leading-normal my-6;
+        &:first-child {
+          @apply mt-0;
+        }
+      }
+    }
+
+    h1:not(.reset) {
+      @apply text-3xl;
+    }
+
+    h2:not(.reset) {
+      @apply text-2xl;
+    }
+
+    h3:not(.reset) {
+      @apply text-xl;
+    }
+
+    h4:not(.reset) {
+      @apply text-lg;
+    }
+
+    h5, h6 {
+      &:not(.reset) {
+        @apply text-base;
+      }
+    }
+
+    ul {
+      @apply list-disc;
+    }
+
+    ol {
+      @apply list-decimal;
+    }
+
+    ul, ol {
+      @apply ml-[1em] my-4;
+    }
+  }
+}
+
+@responsive {
+  .text-shadow {
+    text-shadow: 2px 2px 4px black;
+  }
+}
+
+
+/* Utilities */
+
+.backdrop-filter-body-bg {
+  @apply bg-body-bg/95;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .backdrop-filter-body-bg {
+    @apply bg-body-bg/80 backdrop-filter backdrop-blur;
+  }
+}

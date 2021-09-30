@@ -1,0 +1,17 @@
+{
+  "name": "brand",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Logos, icons and creative assets",
+  "author": "Will Viles <will@sportdevs.com>",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/willviles/sportdevs.git",
+    "directory": "brand"
+  },
+  "files": [
+    "favicons",
+    "icons",
+    "logos"
+  ]
+}

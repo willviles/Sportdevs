@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "resolveJsonModule": true,
+    "target": "es2017",
+    "jsx": "react",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "skipLibCheck": true,
+    "lib": [
+      "es7",
+      "es2017",
+      "dom"
+    ],
+    "types": ["node", "react"],
+    "paths": {
+      "src/*": ["src/*"],
+      "class-validator": ["../node_modules/class-validator"]
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./scripts/**/*",
+    "./src/**/*"
+  ]
+}
