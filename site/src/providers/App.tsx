@@ -22,21 +22,22 @@ export enum AppStatus {
 
 const AppMeta = {
   name: 'Sportdevs',
-  strapline: `Strapline`,
-  shareImgURL: `${process.env.BASE_PATH}/images/social-share.jpg`,
+  strapline: `The community for tech building sport lovers`,
+  shareImgURL: `${process.env.BASE_PATH}/images/social-card.jpg`,
   facebookAppId: '',
   get description () {
-    return `Description`
+    return `#sportdevs is a network of like-minded developers who are ultra passionate about watching & playing sport.`
   },
   author: 'Will Viles',
   get copyright () {
     return `© ${new Date().getFullYear().toString()} ${this.author}`
   },
   get keywords () {
-    return `${this.name}, sport, fans, developers, code, coders, community`
+    return `${this.name}, sport, fans, developers, football, soccer, tennis, tech, build, code, coders, community`
   },
   links: {
-    discord: '',
+    discord: 'https://discord.gg/b6GYdJ5YjU',
+    github: 'https://github.com/willviles/Sportdevs',
     twitter: 'https://twitter.com/willviles'
   }
 } as const
@@ -50,32 +51,8 @@ export const useApp = () => {
 export const AppProvider: FC = ({
   children
 }) => {
-  const [appStatus, setAppStatus] = useState(AppStatus.READY) // If dynamic data loading is required at app level, change initial state to AppStatus.IDLE
+  const [appStatus, setAppStatus] = useState(AppStatus.READY)
   const appReady = useMemo(() => appStatus === AppStatus.READY, [appStatus])
-
-  // const setupApp = useCallback(async () => {
-  //   // If setupApp is returned false from getServerSideProps, then we ignore app setup.
-  //   const shouldSetupApp = window.__NEXT_DATA__?.props?.pageProps?.setupApp !== false
-
-  //   if (!isSSR && shouldSetupApp) {
-  //     try {
-  //       const { data } = await HTTP.request<{ data: any }>({
-  //         method: 'GET',
-  //         url: '/api/app'
-  //       })
-
-  //       setData(data)
-  //     } catch (err) {
-  //       setAppStatus(AppStatus.ERRORED)
-  //       console.error(err)
-  //       return
-  //     }
-  //   }
-
-  //   setAppStatus(AppStatus.READY)
-  // }, [])
-
-  // useEffect(() => { setupApp() }, [])
 
   return (
     <AppContext.Provider

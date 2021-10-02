@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import FocusLock, { AutoFocusInside } from 'react-focus-lock'
 import { useEmailSignUpState } from 'app/hooks/use-storage'
 import { useSubmissionStatus } from 'shared/dist/react/hooks/use-status'
@@ -15,24 +15,35 @@ export const EmailSignUpForm: FC = () => {
   const [submittedData, setSubmittedData] = useEmailSignUpState()
   const { track } = useAnalytics()
 
-  const [status, setStatus] = useSubmissionStatus(submittedData?.email ? 'submitted' : 'idle')
+  const [status, setStatus] = useSubmissionStatus('idle')
+
+  useEffect(() => {
+    if (submittedData?.email) {
+      setStatus('submitted')
+    }
+  }, [submittedData?.email])
 
   return status === 'submitted' ? (
-    <div className="type-article">
-      <h4 className="text-transparent bg-clip-text bg-gradient-to-br from-purple-100 to-green-600">
-        You're on the mailing list!
-      </h4>
-      <p className="text-lg leading-loose">
-        Awesome! I don't have a clue what I'll be sending you yet, but I promise I'll treat <b>{submittedData.email}</b> as if it were my own inbox.<br />
-      </p>
-      <p>
-        <button
-          onClick={() => { setSubmittedData({}); setStatus('idle') }}
-          className="font-bold underline inline-block"
-        >
-          Click to sign up with a different email address.
-        </button>
-      </p>
+    <div>
+      <div className="type-article">
+        <h4 className="text-transparent bg-clip-text bg-gradient-to-br from-purple-100 to-green-600">
+          You're on the mailing list!
+        </h4>
+        <p className="text-lg leading-loose">
+          Awesome! I don't have a clue what I'll be sending you yet, but I promise it'll be only great communication.<br />
+        </p>
+        <p>
+          You're signed up with: <b>{submittedData.email}</b>
+        </p>
+        <p>
+          <button
+            onClick={() => { setSubmittedData({}); setStatus('idle') }}
+            className="font-bold underline inline-block text-primary-100 hover:text-primary-200"
+          >
+            Click to sign up with a different email address.
+          </button>
+        </p>
+      </div>
     </div>
   ) : (
     <div>
@@ -56,7 +67,6 @@ export const EmailSignUpForm: FC = () => {
             })
             track('EmailSignUp')
             setSubmittedData(data)
-            setStatus('submitted')
           } catch (err) {
             console.error(err)
             setStatus('errored')
