@@ -1,0 +1,58 @@
+name: deploy-cloud-run
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-site:
+    name: deploy-site
+    runs-on: ubuntu-latest
+    if: "contains(github.event.head_commit.message, '--deploy-site')"
+    env:
+      NEXT_PUBLIC_GTM_ID: ${{ secrets.SITE_GTM_ID }}
+      CONTAINER_URL: ${{ secrets.SITE_CONTAINER_URL }}
+      GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # This step is where our service account will be authenticated
+      - uses: google-github-actions/setup-gcloud@v0.2.0
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.CLOUD_RUN_SERVICE_ACCOUNT }}
+          service_account_email: ${{ secrets.CLOUD_RUN_SERVICE_ACCOUNT_EMAIL }}
+
+      - name: Enable the necessary APIs and enable docker auth
+        run: |-
+          gcloud services enable containerregistry.googleapis.com
+          gcloud services enable run.googleapis.com
+          gcloud --quiet auth configure-docker
+      - name: Build and tag image
+        run: |-
+          docker build \
+            --cache-from=$IMAGE_TAG_LATEST \
+            -t $CONTAINER_URL:$GITHUB_SHA \
+            -f ./site/Dockerfile \
+            --build-arg NEXT_PUBLIC_GTM_ID=$NEXT_PUBLIC_GTM_ID \
+            .
+          docker tag $CONTAINER_URL:$GITHUB_SHA $CONTAINER_URL:latest
+      - name: Push image to GCR
+        run: |-
+          docker push $CONTAINER_URL:$GITHUB_SHA
+          docker push $CONTAINER_URL:latest
+      - name: Deploy
+        run: |-
+          gcloud run deploy site \
+            --image $CONTAINER_URL:latest \
+            --project $GCP_PROJECT_ID \
+            --allow-unauthenticated \
+            --port=3000\
+            --platform=managed \
+            --concurrency=80 \
+            --memory=800Mi \
+            --region=europe-west1 \
+            --timeout=300
