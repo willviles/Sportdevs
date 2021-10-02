@@ -60,6 +60,7 @@ const IndexPage: FC<{}> = ({}) => {
                 tag="a"
                 theme="primary"
                 href={meta.links.discord}
+                target="_blank"
                 className="inline-flex py-6 px-8 font-bold rounded-lg shadow-xl text-xl"
                 onClick={() => track('DiscordLinkClick')}
               >
