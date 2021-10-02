@@ -2291,15 +2291,15 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-class-transformer-global-storage@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/class-transformer-global-storage/-/class-transformer-global-storage-0.4.0.tgz#cd1aa5350010f647ee7b9e4cf4550ed67aec2895"
-  integrity sha512-VsOciJuUKIpInIURR4XRj+3ms/o+CIkCfsxDTCEUje9GZvmvSmVML9kJchCm6xp/4+rZoOvG810/sYmiysP9rQ==
-
 class-transformer-validator@0.9.1:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/class-transformer-validator/-/class-transformer-validator-0.9.1.tgz#81af4bab5e13ce619a25a74cc70f723a8c4e2779"
   integrity sha512-83/KFCyd6UiiwH6PlQS5y17O5TTx58CawvNI+XdrMs0Ig9QI5kiuzRqGcC/WrEpd1F7i4KIxCwdn6m4B6fl0jw==
+
+class-transformer@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.4.0.tgz#b52144117b423c516afb44cc1c76dbad31c2165b"
+  integrity sha512-ETWD/H2TbWbKEi7m9N4Km5+cw1hNcqJSxlSYhsLsNjQzWWiZIYA1zafxpK9PwVfaZ6AqR5rrjPVUBGESm5tQUA==
 
 class-utils@^0.3.5:
   version "0.3.6"

@@ -152,8 +152,16 @@ hr {
   @apply bg-body-bg/95;
 }
 
+.backdrop-filter-primary-900 {
+  @apply bg-primary-900/95;
+}
+
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
   .backdrop-filter-body-bg {
     @apply bg-body-bg/80 backdrop-filter backdrop-blur;
+  }
+
+  .backdrop-filter-primary-900 {
+    @apply bg-primary-900/80 backdrop-filter backdrop-blur;
   }
 }

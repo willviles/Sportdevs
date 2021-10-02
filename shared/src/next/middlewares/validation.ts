@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
 import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next'
 // import type { NextMiddleware } from 'next-api-middleware'
-import { instanceToPlain } from 'class-transformer-global-storage'
+import { classToPlain } from 'class-transformer'
 import { transformAndValidate, TransformValidationOptions } from 'class-transformer-validator'
 import { InvalidError } from '../../express/errors'
 
@@ -13,7 +13,7 @@ export function nextValidationMiddleware <T> (
   const middleware = async (req: NextApiRequest, res: NextApiResponse, next: NextApiHandler) => {
     try {
       const obj = await transformAndValidate(validationClass as any, req[object], options)
-      req[object] = instanceToPlain(obj)
+      req[object] = classToPlain(obj)
       await next(req, res)
     } catch (errors) {
       console.error(errors)
@@ -31,7 +31,7 @@ export function expressValidationMiddleware <T> (
   const middleware = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const obj = await transformAndValidate(validationClass as any, req[object], options)
-      req[object] = instanceToPlain(obj)
+      req[object] = classToPlain(obj)
       next()
     } catch (errors) {
       console.error(errors)

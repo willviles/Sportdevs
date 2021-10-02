@@ -10,7 +10,7 @@ export const Footer: FC<HTMLAttributes<HTMLDivElement>> = ({
   const { meta } = useApp()
 
   return (
-    <footer className={clsx('py-16 bg-purple-900', className)} {...props}>
+    <footer className={clsx('py-16 bg-primary-900', className)} {...props}>
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row">
           <div className="w-full lg:w-1/2 text-sm pl-[0.5em]">

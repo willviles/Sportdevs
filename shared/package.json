@@ -21,7 +21,7 @@
     "@popperjs/core": "^2.9.1",
     "@tippyjs/react": "^4.2.4",
     "axios": "^0.21.1",
-    "class-transformer-global-storage": "0.4.0",
+    "class-transformer": "0.4.0",
     "class-transformer-validator": "0.9.1",
     "class-validator": "0.13.1",
     "clsx": "^1.1.1",

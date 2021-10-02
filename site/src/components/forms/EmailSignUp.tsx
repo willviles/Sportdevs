@@ -20,10 +20,10 @@ export const EmailSignUpForm: FC = () => {
   return status === 'submitted' ? (
     <div className="type-article">
       <h4 className="text-transparent bg-clip-text bg-gradient-to-br from-purple-100 to-green-600">
-        You're subscribed to the mailing List
+        You're on the mailing list!
       </h4>
       <p className="text-lg leading-loose">
-        Awesome! I don't have a clue what I'll be sending you yet, but I promise I will 'play ball' by not spamming <b>{submittedData.email}</b>.<br />
+        Awesome! I don't have a clue what I'll be sending you yet, but I promise I'll treat <b>{submittedData.email}</b> as if it were my own inbox.<br />
       </p>
       <p>
         <button
@@ -38,13 +38,13 @@ export const EmailSignUpForm: FC = () => {
     <div>
       <div className="type-article mb-8">
         <h4 className="text-transparent bg-clip-text bg-gradient-to-br from-purple-100 to-green-600">
-          Shoot me your email, or don't, or whatever...
+          Shoot me your email, perhaps...
         </h4>
         <p>
-          If you're vibing, perhaps you'd like to leave your email and I'll figure out if there's some cool, infrequent content I can share with you?
+          If you're vibing, you might like to leave your email and I'll figure out if there's some cool, infrequent content I can share with you.
         </p>
       </div>
-      <FocusLock>
+      <FocusLock autoFocus={false}>
         <form onSubmit={async (e) => {
           e.preventDefault()
           setStatus('submitting')
@@ -54,7 +54,7 @@ export const EmailSignUpForm: FC = () => {
               method: 'POST',
               data
             })
-            track('CTA:Click', { placement: 'index-bottom' })
+            track('SignUp:Submit')
             setSubmittedData(data)
             setStatus('submitted')
           } catch (err) {
@@ -68,10 +68,9 @@ export const EmailSignUpForm: FC = () => {
                 <input
                   name="email"
                   required
-                  autoFocus
                   placeholder="david.beckham@football.com"
                   disabled={status === 'submitting'}
-                  className="p-6 w-full rounded-lg text-lg focus:ring-1 ring-primary-500 text-body-bg outline-none"
+                  className="p-6 w-full rounded-lg text-lg ring-2 focus:ring-2 ring-primary-500 focus:ring-primary-200 text-body-bg outline-none"
                   onChange={(e) => { setData((data) => ({ ...data, email: e.target.value })) }}
                 />
               </AutoFocusInside>
