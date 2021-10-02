@@ -8,6 +8,7 @@ import { useApp } from '../providers/App'
 import { ReactComponent as DiscordIcon } from 'brand/icons/discord.svg?sprite'
 import stadiumImage from '../../public/images/stadium.png'
 import { useAnalytics } from '../providers/Analytics'
+import { NavBar } from '../components/NavBar'
 
 const IndexPage: FC<{}> = ({}) => {
   const { meta } = useApp()
@@ -15,6 +16,9 @@ const IndexPage: FC<{}> = ({}) => {
 
   return (<>
     <header className="relative flex items-center py-6 lg:py-12 xl:py-24 min-h-[100vh] box-border">
+
+      <NavBar stickyProps={{ className: 'absolute top-0 left-0 w-full z-50' }} />
+
       <div className="relative flex-1">
         <div className="container mx-auto">
           <LogoText className="h-12 lg:h-14 mb-12 ml-1" />
@@ -67,11 +71,6 @@ const IndexPage: FC<{}> = ({}) => {
                 <DiscordIcon className="h-[1.5em] mr-[0.66em]" />
                 <span>Join the Discord</span>
               </Button>
-            </div>
-          </div>
-          <div className="w-full xl:w-1/3">
-            <div className="xl:-mr-12 flex xl:justify-end">
-              {/* <img src={require('brand/illustrations/main.svg').default} className="w-2/3 md:w-1/2 xl:w-full 3xl:w-4/5 mb-12" /> */}
             </div>
           </div>
         </div>

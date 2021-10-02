@@ -37,6 +37,7 @@ const AppMeta = {
   },
   links: {
     discord: 'https://discord.gg/b6GYdJ5YjU',
+    github: 'https://github.com/willviles/Sportdevs',
     twitter: 'https://twitter.com/willviles'
   }
 } as const
