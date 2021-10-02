@@ -7,9 +7,12 @@ import { Button } from '../components/Button'
 import { useApp } from '../providers/App'
 import { ReactComponent as DiscordIcon } from 'brand/icons/discord.svg?sprite'
 import stadiumImage from '../../public/images/stadium.png'
+import { useAnalytics } from '../providers/Analytics'
 
 const IndexPage: FC<{}> = ({}) => {
   const { meta } = useApp()
+  const { track } = useAnalytics()
+
   return (<>
     <header className="relative flex items-center py-6 lg:py-12 xl:py-24 min-h-[100vh] box-border">
       <div className="relative flex-1">
@@ -58,6 +61,7 @@ const IndexPage: FC<{}> = ({}) => {
                 theme="primary"
                 href={meta.links.discord}
                 className="inline-flex py-6 px-8 font-bold rounded-lg shadow-xl text-xl"
+                onClick={() => track('DiscordLinkClick')}
               >
                 <DiscordIcon className="h-[1.5em] mr-[0.66em]" />
                 <span>Join the Discord</span>

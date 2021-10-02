@@ -54,7 +54,7 @@ export const EmailSignUpForm: FC = () => {
               method: 'POST',
               data
             })
-            track('SignUp:Submit')
+            track('EmailSignUp')
             setSubmittedData(data)
             setStatus('submitted')
           } catch (err) {
