@@ -5,11 +5,8 @@ WORKDIR /usr/src/app
 
 ENV NODE_ENV production
 
-ARG NEXT_PUBLIC_GA_MEASUREMENT_ID
-ENV NEXT_PUBLIC_GA_MEASUREMENT_ID $NEXT_PUBLIC_GA_MEASUREMENT_ID
-
-ARG REVUE_API_KEY
-ENV REVUE_API_KEY $REVUE_API_KEY
+ARG NEXT_PUBLIC_GTM_ID
+ENV NEXT_PUBLIC_GTM_ID $NEXT_PUBLIC_GTM_ID
 
 RUN apk add --update tzdata
 
@@ -23,14 +20,14 @@ COPY yarn.lock .
 COPY ./site ./site
 
 # Copy shared packages
-COPY ./packages/brand ./packages/brand
-COPY ./packages/shared ./packages/shared
+COPY ./brand ./brand
+COPY ./shared ./shared
 
 # Install dependencies
 RUN yarn install --pure-lockfile --non-interactive --production=false
 
 # Build shared package
-WORKDIR /usr/src/app/packages/shared
+WORKDIR /usr/src/app/shared
 RUN yarn build
 
 # Build site
