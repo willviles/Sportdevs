@@ -27,7 +27,7 @@ export const NavBar: FC<HTMLAttributes<HTMLDivElement> & {
   return (
     <Sticky
       {...stickyProps}
-      enabled={!isSSR}
+      enabled={stickyProps.enabled !== false && !isSSR}
       innerZ={49}
     >
       {status => (
@@ -49,11 +49,17 @@ export const NavBar: FC<HTMLAttributes<HTMLDivElement> & {
               <div className="flex-shrink-0">
                 <Link href="/">
                   <a
-                    className={clsx('inline-block py-3', {
-                      'opacity-0': status.status !== Sticky.STATUS_FIXED
-                    })}
+                    className={clsx('inline-block py-3')}
                   >
-                    <LogoText key="navbar-logo-text" className="inline-block h-[2em] 2xl:h-[2.5em]" />
+                    <LogoText
+                      key="navbar-logo-text"
+                      className={clsx(
+                        'inline-block',
+                        status.status === Sticky.STATUS_FIXED
+                          ? 'h-[2.1em] 2xl:h-[2.5em]'
+                          : 'h-[2.1em] md:h-10 2xl:h-12'
+                      )}
+                    />
                   </a>
                 </Link>
               </div>
@@ -61,7 +67,7 @@ export const NavBar: FC<HTMLAttributes<HTMLDivElement> & {
                 const btnProps = {
                   className: clsx(
                     'rounded font-bold',
-                    'px-2 py-2'
+                    'p-2'
                   ),
                   theme: 'primary'
                 }

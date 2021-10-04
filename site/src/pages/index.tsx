@@ -17,13 +17,12 @@ const IndexPage: FC<{}> = ({}) => {
   return (<>
     <header className="relative flex items-center py-6 lg:py-12 xl:py-24 min-h-[100vh] box-border">
 
+      <div className="bg-primary-900 absolute top-0 right-0 w-full h-full lg:w-[40vw]" />
+
       <NavBar stickyProps={{ className: 'absolute top-0 left-0 w-full z-50' }} />
 
       <div className="relative flex-1">
-        <div className="container mx-auto">
-          <LogoText className="h-12 lg:h-14 mb-12 ml-1" />
-        </div>
-        <div className="container mx-auto flex items-start flex-col-reverse xl:flex-row">
+        <div className="container mx-auto flex items-start flex-col-reverse xl:flex-row mt-[10vh]">
           <div className="w-full mb-12 xl:mb-0 xl:w-2/3">
             <h1 className="type-heading text-5xl md:text-6xl 2xl:text-7xl text-transparent bg-clip-text bg-gradient-to-br from-purple-100 to-green-600">
               <span>Love sport?&nbsp;</span><br className="md:hidden" />
