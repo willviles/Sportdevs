@@ -15,8 +15,8 @@ export const Footer: FC<HTMLAttributes<HTMLDivElement>> = ({
   const { track } = useAnalytics()
 
   return (
-    <footer className={clsx('py-16 bg-primary-900', className)} {...props}>
-      <div className="container mx-auto">
+    <footer className={clsx('py-16', className)} {...props}>
+      <div className="container-lg mx-auto">
         <div className="flex flex-col-reverse gap-12 lg:flex-row">
           <div className="w-full lg:w-1/2 text-sm pl-[0.5em]">
             <LogoText className="inline-block h-[2em] mb-4" />

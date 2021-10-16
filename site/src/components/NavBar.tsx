@@ -40,7 +40,7 @@ export const NavBar: FC<HTMLAttributes<HTMLDivElement> & {
           })}>
             <div
               className={clsx(
-                'container mx-auto flex items-center',
+                'container-lg mx-auto flex items-center',
                 status.status === Sticky.STATUS_FIXED
                   ? 'py-2 xl:py-3 3xl:py-4'
                   : 'py-4 xl:py-5 3xl:py-6'
@@ -73,7 +73,7 @@ export const NavBar: FC<HTMLAttributes<HTMLDivElement> & {
                 }
 
                 return (<>
-                  <ul className="flex-1 flex justify-end lg:hidden -mr-3 md:mr-0">
+                  {/* <ul className="flex-1 flex justify-end lg:hidden -mr-3 md:mr-0">
                     <li>
                       <Button
                         tag="button"
@@ -83,7 +83,7 @@ export const NavBar: FC<HTMLAttributes<HTMLDivElement> & {
                         <Burger open={navBarMobileOpen} className="h-[2em]" />
                       </Button>
                     </li>
-                  </ul>
+                  </ul> */}
                   <ul className="hidden flex-1 lg:flex justify-end gap-3">
                     <li>
                       <Button

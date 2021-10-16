@@ -21,12 +21,12 @@ export enum AppStatus {
 }
 
 const AppMeta = {
-  name: 'Sportdevs',
-  strapline: `The community for tech building sport lovers`,
+  name: 'SportDevs',
+  strapline: `Community for techies who love sport`,
   shareImgURL: `${process.env.BASE_PATH}/images/social-card.jpg`,
   facebookAppId: '',
   get description () {
-    return `#sportdevs is a network of like-minded developers who are ultra passionate about watching & playing sport.`
+    return `#sportdevs is a network of like-minded developers who are passionate about watching & playing sport.`
   },
   author: 'Will Viles',
   get copyright () {

@@ -2,11 +2,11 @@ import { FC } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useApp } from '../providers/App'
-import { usePageTitle } from '../hooks/use-page-title'
+import { pageTitleDelimiter } from '../hooks/use-page-title'
 
 export const HeadComponent: FC = () => {
   const { meta } = useApp()
-  const pageTitle = usePageTitle(meta.strapline)
+  const pageTitle = `${meta.name} ${pageTitleDelimiter} ${meta.strapline}`
   const router = useRouter()
   const currentUrl = `${process.env.BASE_PATH}${router?.asPath}`
   const faviconPath = (path: string) => `/favicons/${path}`
