@@ -26,7 +26,7 @@ export const EmailSignUpForm: FC = () => {
   return status === 'submitted' ? (
     <div>
       <div className="type-article">
-        <h4 className="text-transparent bg-clip-text bg-gradient-to-br from-purple-100 to-green-600">
+        <h4 className="text-xl text-transparent bg-clip-text bg-gradient-to-br from-primary-100 to-green-600">
           You're on the mailing list!
         </h4>
         <p className="text-lg leading-loose">
@@ -48,7 +48,7 @@ export const EmailSignUpForm: FC = () => {
   ) : (
     <div>
       <div className="type-article mb-8">
-        <h4 className="text-transparent bg-clip-text bg-gradient-to-br from-purple-100 to-green-600">
+        <h4 className="text-xl text-transparent bg-clip-text bg-gradient-to-br from-purple-100 to-green-600">
           Shoot me your email, perhaps...
         </h4>
         <p>
@@ -103,11 +103,6 @@ export const EmailSignUpForm: FC = () => {
                   })()}
                 </span>
               </Button>
-            </div>
-            <div className="lg:col-span-8 mx-2">
-              <p className="text-xs">
-                By submitting, you agree with Mailchimp's <a target="_blank" href="https://mailchimp.com/legal/terms/" className="font-bold underline">Terms</a> and <a target="_blank" href="https://mailchimp.com/legal/privacy/" className="font-bold underline">Privacy Policy</a>.
-              </p>
             </div>
           </div>
         </form>

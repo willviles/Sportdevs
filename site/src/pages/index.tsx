@@ -15,24 +15,29 @@ const IndexPage: FC<{}> = ({}) => {
   const { track } = useAnalytics()
 
   return (<>
-    <header className="relative flex items-center py-6 lg:py-12 xl:py-24 min-h-[100vh] box-border">
+  <header className="relative box-border">
+      <div className="absolute inset-0 mask-gradient opacity-50">
+        <Image
+          layout="fill"
+          className="object-center object-cover pointer-events-none"
+          src={stadiumImage}
+          placeholder="blur"
+          quality={100}
+          alt={'madrid fan'}
+        />
+      </div>
+
+      <div key="navbar-padding" className="h-[80px]" />
 
       <NavBar stickyProps={{ className: 'absolute top-0 left-0 w-full z-50' }} />
 
-      <div className="relative flex-1">
-        <div className="container mx-auto">
-          <LogoText className="h-12 lg:h-14 mb-12 ml-1" />
-        </div>
-        <div className="container mx-auto flex items-start flex-col-reverse xl:flex-row">
-          <div className="w-full mb-12 xl:mb-0 xl:w-2/3">
-            <h1 className="type-heading text-5xl md:text-6xl 2xl:text-7xl text-transparent bg-clip-text bg-gradient-to-br from-purple-100 to-green-600">
-              <span>Love sport?&nbsp;</span><br className="md:hidden" />
-              <span>Build tech?&nbsp;</span><br />
-              <span className="block mb-8 md:mb-3" />
-              <span>Let's create a community.</span>
+      <div className="relative flex-1 pt-24 lg:pt-[15vh]">
+        <div className="container-lg mx-auto">
+          <div className="w-full mb-12">
+            <h1 className="type-heading text-4xl md:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-br from-primary-100 to-green-600 pb-8 md:w-3/4">
+              Love sport? Build tech? Let's create a community.
             </h1>
-            <div className="mb-8" />
-            <h2 className="text-xl 2xl:text-2xl leading-loose md:w-5/6 xl:w-4/5 mb-8">
+            <h2 className="text-xl leading-loose md:w-5/6 xl:w-4/5 mb-8">
               Hi, I'm&nbsp;
               <a
                 href="https://twitter.com/willviles"
@@ -53,12 +58,11 @@ const IndexPage: FC<{}> = ({}) => {
               </a>
               , a network of likeminded developers who are ultra passionate about watching &amp; playing sport.
             </h2>
-            <div className="type-article md:w-5/6 xl:w-3/4">
+            <div className="type-article md:w-5/6 xl:w-3/4 mb-12">
               <p>
                 We're a niche within the programming world... so let’s unite to talk tech, share ideas &amp; support each others' projects, all whilst enjoying casual chats about our favourite sports teams, players &amp; matches.
               </p>
             </div>
-            <div className="mb-12" />
             <div>
               <Button
                 tag="a"
@@ -77,17 +81,9 @@ const IndexPage: FC<{}> = ({}) => {
       </div>
     </header>
 
-    <section className="relative py-[5vw]">
-      <Image
-        layout="fill"
-        className="object-bottom object-cover pointer-events-none"
-        src={stadiumImage}
-        placeholder="blur"
-        quality={100}
-        alt={'sportdevs stadium bg'}
-      />
-      <div className="container-md mx-auto relative z-1">
-        <div className="rounded-2xl backdrop-filter-primary-900 shadow-2xl p-6 lg:p-8 xl:py-8 xl:px-10 xl:mr-24">
+    <section className="relative">
+      <div className="container-lg mx-auto relative z-1">
+        <div className="rounded-2xl border border-primary-500 shadow-2xl p-6 lg:p-8 xl:py-8 xl:px-10">
           <EmailSignUpForm />
         </div>
       </div>

@@ -31,7 +31,6 @@ hr {
   @apply bg-selection text-white;
 }
 
-
 /* Containers */
 
 @responsive {
@@ -51,8 +50,14 @@ hr {
     }
   }
 
-  @screen xl {
+  @screen lg {
     .container, .container-lg, .container-xl, .container-2xl {
+      max-width: theme('screens.lg');
+    }
+  }
+
+  @screen xl {
+    .container, .container-xl, .container-2xl {
       max-width: theme('screens.xl');
     }
   }
@@ -147,6 +152,10 @@ hr {
 
 
 /* Utilities */
+
+.mask-gradient {
+  mask: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 50%)
+}
 
 .backdrop-filter-body-bg {
   @apply bg-body-bg/95;
